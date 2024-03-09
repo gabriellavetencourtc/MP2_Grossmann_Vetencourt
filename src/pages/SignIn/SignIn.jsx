@@ -15,10 +15,14 @@ function SignIn() {
   const [password, setPassword] = useState('')
 
   const signIn = async() => {
-    await signInWithCredentials(email, password, name, lastName, favVideoGame, username)
+    const user = await signInWithCredentials(email, password, name, lastName, favVideoGame, username)
+    if(user){
+
+    }else{
+      alert('Sign in couldnt be completed')
+    }
   }
   const signInWithGoogle = async() => {
-    //TODO: add logic to handle sign in with google to complete user info
     await signInWithGoogleProvider();
   }
   const logOut = async () => {

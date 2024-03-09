@@ -45,7 +45,7 @@ function Login() {
         <button onClick={() => logIn()} className='signIn__btn__fill'>Log In</button>
         <button onClick={() => signInWithGoogle()} className='signIn__btn__border'>Log In with Google</button>
         {
-          user?.email && (
+          user && user.email && (
             <button onClick={() => logOut()} className='signIn__btn__border'>Logout</button>
           )
         }
