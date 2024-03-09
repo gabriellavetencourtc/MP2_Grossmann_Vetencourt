@@ -2,11 +2,15 @@ import './LogIn.css'
 import React, { useEffect, useState } from 'react'
 import { logInWithCredentials, logInWithGoogleProvider, logout } from '../../controllers/auth'
 import {useUser} from '../../context/user'
+import { useNavigate } from "react-router-dom";
+
 
 
 function Login() {
 
   const user = useUser();
+
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -20,14 +24,19 @@ function Login() {
   }, [user])
   
 
-  const logIn = async() => {
-    await logInWithCredentials(email, password)
+  const handleLogIn = async() => {
+    const user = await logInWithCredentials(email, password)
+    if(user){
+      navigate('/')
+    }else{
+      alert('login failed')
+    }
   }
   const signInWithGoogle = async() => {
     await logInWithGoogleProvider();
   }
 
-  const logOut = async () => {
+  const handleLogOut = async () => {
     await logout()
   }
   return (
@@ -42,11 +51,11 @@ function Login() {
           <p className='label'>Password</p>
           <input type='password' placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
         </div>
-        <button onClick={() => logIn()} className='signIn__btn__fill'>Log In</button>
+        <button onClick={() => handleLogIn()} className='signIn__btn__fill'>Log In</button>
         <button onClick={() => signInWithGoogle()} className='signIn__btn__border'>Log In with Google</button>
         {
           user && user.email && (
-            <button onClick={() => logOut()} className='signIn__btn__border'>Logout</button>
+            <button onClick={() => handleLogOut()} className='signIn__btn__border'>Logout</button>
           )
         }
         

@@ -32,7 +32,7 @@ export const signInWithCredentials = async (
     };
     const userDocRef = doc(usersCollection, user.uid);
     await setDoc(userDocRef, documentData);
-    alert('user created successfully!!');
+    return user;
   } catch (error) {
     console.log(error);
   }
@@ -70,15 +70,16 @@ export const logout = async () => {
 };
 export const logInWithCredentials = async (email, password) => {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
-    alert('user logged in successfully!!');
+    const user = await signInWithEmailAndPassword(auth, email, password);
+    return user;
   } catch (error) {
     console.log(error);
   }
 };
 export const logInWithGoogleProvider = async () => {
   try {
-    await signInWithPopup(auth, googleProvider);
+    const user = await signInWithPopup(auth, googleProvider);
+    return user;
   } catch (error) {
     console.log(error);
   }

@@ -4,6 +4,7 @@ import { auth, db, googleProvider } from '../../config/firebase'
 import { createUserWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
 import { collection, doc, setDoc } from "firebase/firestore"; 
 import { logout, signInWithCredentials, signInWithGoogleProvider } from '../../controllers/auth';
+import { useNavigate } from 'react-router-dom';
 
 function SignIn() {
 
@@ -14,10 +15,12 @@ function SignIn() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const navigate = useNavigate();
+
   const signIn = async() => {
     const user = await signInWithCredentials(email, password, name, lastName, favVideoGame, username)
     if(user){
-
+      navigate('/')
     }else{
       alert('Sign in couldnt be completed')
     }
