@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Header.css'
-import { CgProfile } from "react-icons/cg";
+import { IoPersonCircle } from "react-icons/io5";
 
 import { Link, useNavigate } from 'react-router-dom';
 import { useUser } from '../../context/user';
@@ -49,7 +49,7 @@ function Header() {
           </>
         )}
         {user && (
-          <CgProfile size={36} color='#F3FEF6' onClick={() => setShowProfileModal(!showProfileModal)}/>
+          <IoPersonCircle size={36} color='#F3FEF6' onClick={() => setShowProfileModal(!showProfileModal)}/>
         )}
 
         {showProfileModal && (

@@ -36,12 +36,17 @@
     cursor: pointer;
     min-width: 80px;
     border: 2px solid var(--light-green);
-}
-
-.profile__edit__btn a{
     text-decoration: none;
     color: #000;
-    font-weight: 500;
+    font-weight: 600;
+    transition: all ease .3s;
+}
+
+.profile__edit__btn:hover{
+    background-color: var(--dark-green);
+    border: 2px solid var(--dark-green);
+    color: #FFF;
+    transform: scale(1.05);
 }
 
 .profile__update__btn{
@@ -54,12 +59,15 @@
     min-width: 80px;
     border: 2px solid var(--dark-green);
     background-color: var(--dark-green);
-}
-
-.profile__update__btn > a{
     text-decoration: none;
     color: #FFF;
     font-weight: 600;
+    transition: all ease .3s;
+}
+
+.profile__update__btn:hover{
+    opacity: 0.7;
+    transform: scale(1.05);
 }
 
 .memberships__title{
