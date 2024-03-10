@@ -22,17 +22,19 @@ export default function UserProvider({children}) {
               } else {
                   setUser(user);
               }
-              console.log(user)
               
               // Subscribe to changes in the user document
             onSnapshot(doc(db, "users", user.uid), (doc) => {
-                setUser(prevUser => ({
-                  ...prevUser,
+                setUser({
                   ...doc.data(),
                   email: user.email,
                   uid: user?.uid
-              }));
-              console.log(user)
+              });
+              console.log({
+                ...doc.data(),
+                email: user.email,
+                uid: user?.uid
+            })
             
             });
           } else {

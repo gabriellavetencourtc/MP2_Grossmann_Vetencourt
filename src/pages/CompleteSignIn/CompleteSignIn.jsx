@@ -5,6 +5,8 @@ import { createUserWithEmailAndPassword, signInWithPopup, signOut } from 'fireba
 import { completeUserInfo, getUserById, signInWithCredentials, signInWithGoogleProvider } from '../../controllers/auth';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../context/user';
+import Dropdown from '../../components/Dropdown/Dropdown';
+import { getAllVideogames } from '../../controllers/videogames';
 
 function CompleteSignIn() {
 
@@ -12,9 +14,23 @@ function CompleteSignIn() {
   const [lastName, setLastName] = useState('')
   const [favVideoGame, setFavVideoGame] = useState('')
   const [username, setUserName] = useState('')
+  const [videogamesList, setVideoGamesList] = useState([])
 
   const navigate = useNavigate();
   const { user, setUser } = useUser();
+
+  useEffect(() => {
+    const handleGetVideogames = async () => {
+      const videogames = await getAllVideogames();
+
+      if (videogames.length > 0) {
+          setVideoGamesList(videogames);
+      }
+    };
+
+    handleGetVideogames();
+  }, [])
+  
   
 
   const handleCompleteSignIn = async() => {
@@ -46,7 +62,7 @@ function CompleteSignIn() {
         </div>
         <div className='field__wrapper'>
           <p className='label'>Favorite Video Game</p>
-          <input placeholder='Call of Duty' value={favVideoGame} onChange={(e) => setFavVideoGame(e.target.value)}/>
+          <Dropdown data={videogamesList} setSelectedData={setFavVideoGame} selectedData={favVideoGame}/>
         </div>
         <button onClick={() => handleCompleteSignIn()} className='signIn__btn__fill'>Complete sign in</button>
       </div>

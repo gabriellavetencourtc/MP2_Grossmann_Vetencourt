@@ -1,6 +1,6 @@
 import './LogIn.css'
 import React, { useEffect, useState } from 'react'
-import { logInWithCredentials, logOutUser, signInWithGoogleProvider } from '../../controllers/auth'
+import { getUserById, logInWithCredentials, logOutUser, signInWithGoogleProvider } from '../../controllers/auth'
 import {useUser} from '../../context/user'
 import { useNavigate } from "react-router-dom";
 
@@ -32,7 +32,8 @@ function Login() {
   }
   const signInWithGoogle = async() => {
     const user = await signInWithGoogleProvider();
-    if(user){
+    const userInDb = await getUserById(user.uid);
+    if(!userInDb){
       navigate('/complete-signin')
     }else{
       console.log('error loging in with google')

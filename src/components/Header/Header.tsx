@@ -22,6 +22,7 @@ function Header() {
   const handleSignOut = async() => {
     setShowProfileModal(false)
     await logOutUser()
+    navigate('/')
   }
 
   return (

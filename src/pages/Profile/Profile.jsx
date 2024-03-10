@@ -5,6 +5,8 @@ import { useUser } from '../../context/user';
 import { useNavigate } from 'react-router-dom';
 import { addNewMembership, removeMembership, updateUser } from '../../controllers/auth';
 import { getClubById } from '../../controllers/clubs';
+import Dropdown from '../../components/Dropdown/Dropdown';
+import { getAllVideogames } from '../../controllers/videogames';
 
 function Profile() {
 
@@ -13,8 +15,8 @@ function Profile() {
     const [favVideoGame, setFavVideoGame] = useState('')
     const [username, setUserName] = useState('')
     const [email, setEmail] = useState('')
-    const [memberships, setMemberships] = useState([])
     const [membershipsClubData, setMembershipsClubData] = useState([])
+    const [videogamesList, setVideoGamesList] = useState([])
 
     const [enableEdit, setEnableEdit] = useState(true);
 
@@ -24,12 +26,11 @@ function Profile() {
 
     useEffect(() => {
       if(user){
-        setName(user.nombre)
-        setLastName(user.apellido)
-        setFavVideoGame(user.videojuego_preferido)
-        setUserName(user.username)
-        setEmail(user.email)
-        setMemberships(user.membresias)
+        setName(user?.nombre)
+        setLastName(user?.apellido)
+        setFavVideoGame(user?.videojuego_preferido)
+        setUserName(user?.username)
+        setEmail(user?.email)
 
         const handleGetClubsForMemberships = async (userMemberships) => {
             let memberships = [];
@@ -45,6 +46,16 @@ function Profile() {
         }
 
         handleGetClubsForMemberships(user.membresias)
+
+        const handleGetVideogames = async () => {
+            const videogames = await getAllVideogames();
+    
+            if (videogames.length > 0) {
+                setVideoGamesList(videogames);
+            }
+        };
+    
+        handleGetVideogames();
 
       }else{
         navigate('/login')
@@ -122,7 +133,7 @@ function Profile() {
                 </div>
                 <div className='field__wrapper'>
                     <p className='profile__label'>Favorite Video Game</p>
-                    <input placeholder='Call of Duty' value={favVideoGame} onChange={(e) => setFavVideoGame(e.target.value)} disabled={enableEdit}/>
+                    <Dropdown data={videogamesList} disabled={enableEdit} setSelectedData={setFavVideoGame} selectedData={favVideoGame}/>
                 </div>
                 <div className='field__wrapper'>
                     <p className='memberships__title'>Membresias</p>
