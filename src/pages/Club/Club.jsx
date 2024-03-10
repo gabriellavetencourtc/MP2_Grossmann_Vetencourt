@@ -1,5 +1,7 @@
 import React from 'react'
 import './Club.css'
+import { GiGriffinShield } from 'react-icons/gi'
+import { IoMdClose } from 'react-icons/io'
 
 function Club() {
   return (

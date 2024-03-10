@@ -1,0 +1,87 @@
+.profile__container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 100px;
+    background-color: var(--green);
+    padding-bottom: 30px;
+}
+
+.profile__card{
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+    gap: 30px;
+    width: 80%;
+}
+
+.profile__info{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.label{
+    color: #FFF;
+    font-weight: 600;
+}
+
+.profile__edit__btn{
+    background-color: var(--light-green);
+    outline: none;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    min-width: 80px;
+    border: 2px solid var(--light-green);
+}
+
+.profile__edit__btn a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+
+.profile__update__btn{
+    border: none;
+    outline: none;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    min-width: 80px;
+    border: 2px solid var(--dark-green);
+    background-color: var(--dark-green);
+}
+
+.profile__update__btn > a{
+    text-decoration: none;
+    color: #FFF;
+    font-weight: 600;
+}
+
+.memberships__title{
+    font-weight: 600;
+    color: #FFF;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.membership__item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.membership__club__name{
+    color: #FFF
+}
+
+.memberships__list{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0px 10px;
+}

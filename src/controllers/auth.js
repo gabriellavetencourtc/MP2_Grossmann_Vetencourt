@@ -142,3 +142,15 @@ export const removeMembership = async (userId, clubId) => {
     return false;
   }
 };
+
+export const updateUser = async (userId, userData) => {
+  try {
+    const userRef = doc(db, 'users', userId);
+    // Set the "capital" field of the city 'DC'
+    await updateDoc(userRef, userData);
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};

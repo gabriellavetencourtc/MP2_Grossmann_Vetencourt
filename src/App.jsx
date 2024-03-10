@@ -8,6 +8,8 @@ import Home from './pages/Home/Home'
 import CompleteSignIn from './pages/CompleteSignIn/CompleteSignIn'
 import Videogames from './pages/Videogames/Videogames'
 import Clubs from './pages/Clubs/Clubs'
+import Profile from './pages/Profile/Profile'
+import Club from './pages/Club/Club'
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
             <Route path="/signin"  element={<SignIn/>}/>
             <Route path="/complete-signin"  element={<CompleteSignIn/>}/>
             <Route path="/videogames"  element={<Videogames/>}/>
+            {/* <Route path="/clubs/:id"  element={<Club/>}/> */}
+            <Route path="/profile"  element={<Profile/>}/>
         </Routes>
     </>
   )

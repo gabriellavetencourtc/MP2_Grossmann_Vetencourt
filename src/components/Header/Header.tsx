@@ -15,7 +15,7 @@ function Header() {
   const [showProfileModal, setShowProfileModal] = useState(false)
 
   const handleNavigateToProfile = () => {
-    // navigate('profile', {replace: true});
+    navigate('profile', {replace: true});
     setShowProfileModal(false)
   }
 
