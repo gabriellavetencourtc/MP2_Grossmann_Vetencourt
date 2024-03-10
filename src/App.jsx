@@ -10,15 +10,14 @@ import CompleteSignIn from './pages/CompleteSignIn/CompleteSignIn'
 function App() {
   return (
     <>
+        {/* Header */}
         <Header/>
-        <div>
-            <Routes>        
-                <Route path="/"  element={<Home/>} />
-                <Route path="/login"  element={<Login />}/>
-                <Route path="/signin"  element={<SignIn/>}/>
-                <Route path="/complete-signin"  element={<CompleteSignIn/>}/>
-            </Routes>
-        </div>
+        <Routes>        
+            <Route path="/"  element={<Home/>} />
+            <Route path="/login"  element={<Login />}/>
+            <Route path="/signin"  element={<SignIn/>}/>
+            <Route path="/complete-signin"  element={<CompleteSignIn/>}/>
+        </Routes>
     </>
   )
 }

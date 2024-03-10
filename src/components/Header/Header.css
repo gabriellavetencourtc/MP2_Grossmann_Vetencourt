@@ -1,0 +1,79 @@
+.header__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(50px);
+    width: 97.5%;
+}
+
+.logo{
+    font-weight: 700;
+    font-size: 40px;
+    color: #FFF;
+    padding: 0px 30px;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 0px 20px;
+    flex: 1;
+}
+
+.search_bar_wrapper{
+    display: flex;
+    flex: 1;
+    max-width: 400px;
+    background-color: #FFF;
+    border-radius: 20px;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.search_bar{
+    border: none;
+    outline: none;
+}
+
+.link_tag a{
+    text-decoration: none;
+    font-weight: 600;
+    color: #FFF;
+    transition: all ease .3s;
+}
+.link_tag a:hover{
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--light-green);
+    cursor: pointer;
+}
+
+.right{
+    position: relative;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn{
+    background-color: var(--light-green);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btn a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+.right svg{
+    cursor: pointer;
+}
