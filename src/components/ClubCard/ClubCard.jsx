@@ -1,11 +1,12 @@
 import React from 'react'
 import './ClubCard.css'
 import { GiGriffinShield } from "react-icons/gi";
-function ClubCard({club, setShowModal, setSelectedClub}) {
+function ClubCard({club, setShowModal, setSelectedClub, handleGetVideoGamesForClub}) {
 
   const handleClick = () => {
     setSelectedClub(club)
     setShowModal(true)
+    handleGetVideoGamesForClub(club)
   }
 
   return (

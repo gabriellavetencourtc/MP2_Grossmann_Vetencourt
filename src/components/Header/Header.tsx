@@ -16,9 +16,11 @@ function Header() {
 
   const handleNavigateToProfile = () => {
     // navigate('profile', {replace: true});
+    setShowProfileModal(false)
   }
 
   const handleSignOut = async() => {
+    setShowProfileModal(false)
     await logOutUser()
   }
 

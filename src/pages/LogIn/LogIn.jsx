@@ -15,10 +15,17 @@ function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  useEffect(() => {
+    if(user){
+      navigate('/clubs')
+    }
+  }, [user])
+  
+
   const handleLogIn = async() => {
     const loggedUser = await logInWithCredentials(email, password)
     if(loggedUser){
-      navigate('/videogames')
+      navigate('/clubs')
     }else{
       console.log('login failed')
     }

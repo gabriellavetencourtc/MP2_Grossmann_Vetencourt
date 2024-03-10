@@ -13,3 +13,23 @@ export const getAllVideogames = async () => {
     console.log(error);
   }
 };
+
+export const getVideogameById = async (videogameId) => {
+  try {
+    if (!videogameId) {
+      console.error('videogameId is empty');
+      return null;
+    }
+    const videoGamesCollection = collection(db, 'videogames');
+    const videoGamesDocRef = doc(videoGamesCollection, videogameId);
+    const docSnap = await getDoc(videoGamesDocRef);
+    if (docSnap.exists()) {
+      return docSnap.data();
+    } else {
+      console.log('No such document!');
+      return null;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};

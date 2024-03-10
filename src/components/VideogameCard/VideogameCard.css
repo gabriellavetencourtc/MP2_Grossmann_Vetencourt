@@ -15,6 +15,13 @@
     min-height: 120px;
 }
 
+.card__wrapper__dark{
+    background: rgba(0, 0, 0, 0.7);
+}
+.card__wrapper__dark:hover{
+    background: rgba(0, 0, 0, 0.8) !important;
+}
+
 .card__wrapper:hover{
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(15.2px);

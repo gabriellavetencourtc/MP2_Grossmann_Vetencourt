@@ -51,11 +51,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30%;
-    height: 40vh;
+    width: 80%;
+    height: 80vh;
     border-radius: 20px;
     background: #F9F9F9;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    overflow-y: scroll;
 }
 
 .modal__wrapper svg{
@@ -63,6 +64,7 @@
 }
 .modal__content{
     display: flex;
+    flex: 1;
     flex-direction: column;
 }
 

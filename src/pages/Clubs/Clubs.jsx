@@ -8,6 +8,8 @@ import { GiGriffinShield } from 'react-icons/gi';
 import { useUser } from '../../context/user';
 import { useNavigate } from 'react-router-dom';
 import { addNewMembership, removeMembership } from '../../controllers/auth';
+import { getVideogameById } from '../../controllers/videogames';
+import VideogameCard from '../../components/VideogameCard/VideogameCard';
 
 
 function Clubs() {
@@ -16,6 +18,7 @@ function Clubs() {
 
     const [showModal, setShowModal] = useState(false);
     const [selectedClub, setSelectedClub] = useState(null);
+    const [selectedClubGames, setSelectedClubGames] = useState(null);
 
     const { user } = useUser();
 
@@ -27,7 +30,7 @@ function Clubs() {
 
     useEffect(() => {
         if(!user){
-            navigate('/')
+            navigate('/login')
         }
         const handleGetClubs = async () => {
             const clubs = await getAllClubs();
@@ -39,7 +42,7 @@ function Clubs() {
         };
     
         handleGetClubs();
-    }, []);
+    }, [user]);
     
 
    const handleFilter = (value) => {
@@ -83,10 +86,23 @@ function Clubs() {
     }
    }
 
+   const handleGetVideoGamesForClub = async (club) => {
+        let games = [];
+        await Promise.all(
+            club.videojuegos.map(async (gameId) => {
+                const videogame = await getVideogameById(gameId);
+                if (videogame) {
+                    games.push(videogame);
+                }
+            })
+        );
+        setSelectedClubGames(games);
+    }
+
   return (
     <div className='clubs__container'>
         <div className='clubs__header'>
-            <p>Videogames</p>
+            <p>Clubs</p>
             <div className='search_bar_wrapper'>
                 <CiSearch size={24} color='#3A9E57'/>
                 <input placeholder='search for a club...' className='search_bar' onChange={(e) => handleFilter(e.target.value)}/>
@@ -94,8 +110,8 @@ function Clubs() {
 
         </div>
         <div className='clubs__list'>
-            {filterClubsList.length > 0 && filterClubsList.map((club, index)=> (
-                <ClubCard key={index} club={club} setShowModal={setShowModal} setSelectedClub={setSelectedClub}/>
+            {filterClubsList?.length > 0 && filterClubsList?.map((club, index)=> (
+                <ClubCard key={index} club={club} setShowModal={setShowModal} setSelectedClub={setSelectedClub} handleGetVideoGamesForClub={handleGetVideoGamesForClub}/>
             ))}
         </div>
 
@@ -122,6 +138,12 @@ function Clubs() {
                                 )}
                             </div>
                             <p className='modal__game__description'>{selectedClub?.descripcion}</p>
+                            <p>Videogames in the club</p>
+                            <div className='clubs__list'>
+                                {selectedClubGames?.length > 0 && selectedClubGames.map((clubGame, index)=> (
+                                    <VideogameCard videogame={clubGame} key={index} dark={true}/>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

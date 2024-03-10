@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 import Header from './components/Header/Header'
 import SignIn from './pages/SignIn/SignIn'
@@ -14,13 +14,13 @@ function App() {
     <>
         {/* Header */}
         <Header/>
-        <Routes>        
-            <Route path="/"  element={<Home/>} />
+        <Routes>       
+            <Route path="/" element={<Navigate to="/clubs" />} /> 
+            <Route  path="/clubs"  element={<Clubs/>} index={true}/>
             <Route path="/login"  element={<Login />}/>
             <Route path="/signin"  element={<SignIn/>}/>
             <Route path="/complete-signin"  element={<CompleteSignIn/>}/>
             <Route path="/videogames"  element={<Videogames/>}/>
-            <Route path="/clubs"  element={<Clubs/>}/>
         </Routes>
     </>
   )
