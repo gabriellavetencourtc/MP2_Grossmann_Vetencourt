@@ -1,0 +1,55 @@
+.club__container{
+    display: flex;
+    background: #F9F9F9;
+    min-height: 100vh;
+    min-width: 100vw;
+    width: 100%;
+}
+
+.club__wrapper{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.club__wrapper svg{
+    cursor: pointer;
+}
+
+.club__content{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.club__header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 40px;
+    top: 120px;
+}
+
+.club__clubcard__banner{
+    background:  rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none !important;
+    position: relative;
+    padding-top: 100px;
+    height: 30vh;
+}
+
+.club__clubcard__info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 40px;
+}
+
+.club_game__title{
+    font-weight: 700;
+    font-size: 25px;
+}

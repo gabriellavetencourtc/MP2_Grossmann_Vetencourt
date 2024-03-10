@@ -131,9 +131,9 @@ function Profile() {
                             <div key={index} className='membership__item'>
                                 <p className='membership__club__name'>{club.nombre}</p>
                                 {findSubscription(club.Id) ? (
-                                    <button className='modal__unsubscribe' onClick={() => handleUnsubscribeToClub(club.Id)}>Unsubscribe</button>
+                                    <button className='btn__unsubscribe' onClick={() => handleUnsubscribeToClub(club.Id)}>Unsubscribe</button>
                                 ): (
-                                    <button className='modal__subscribe' onClick={() => handleSubscribeToClub(club.Id)}>Subscribe</button>
+                                    <button className='btn__subscribe' onClick={() => handleSubscribeToClub(club.Id)}>Subscribe</button>
                                 )}
                             </div>
                         ))}

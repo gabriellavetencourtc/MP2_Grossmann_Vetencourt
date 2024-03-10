@@ -23,3 +23,35 @@ body {
 p{
   margin: 0;
 }
+
+.btn__subscribe{
+  border: none;
+  outline: none;
+  background-color: var(--dark-green);
+  padding: 10px 20px;
+  color: #FFF;
+  font-weight: 500;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.btn__unsubscribe{
+  border: none;
+  outline: none;
+  border: 1px solid var(--dark-green);
+  background-color: #FFF;
+  padding: 10px 20px;
+  color: #000;
+  font-weight: 500;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.flex-space-between{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pb-10{
+  padding-bottom: 10px;
+}

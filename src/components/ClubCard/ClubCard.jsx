@@ -1,12 +1,13 @@
 import React from 'react'
 import './ClubCard.css'
 import { GiGriffinShield } from "react-icons/gi";
-function ClubCard({club, setShowModal, setSelectedClub, handleGetVideoGamesForClub}) {
+import { useNavigate } from 'react-router-dom';
+function ClubCard({club}) {
+
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    setSelectedClub(club)
-    setShowModal(true)
-    handleGetVideoGamesForClub(club)
+    navigate(`/clubs/${club.Id}`, {replace: true})
   }
 
   return (
