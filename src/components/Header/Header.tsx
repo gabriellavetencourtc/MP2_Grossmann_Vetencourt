@@ -31,10 +31,10 @@ function Header() {
       </div>
       <div className='links'>
         <div className='link_tag'>
-          <Link to="/videogames">Videogames</Link>
+          <Link to="/clubs">Clubs</Link>
         </div>
         <div className='link_tag'>
-          <Link to="/clubs">Clubs</Link>
+          <Link to="/videogames">Videogames</Link>
         </div>
       </div>
       <div className='right'>
