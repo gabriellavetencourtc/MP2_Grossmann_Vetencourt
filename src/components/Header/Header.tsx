@@ -1,7 +1,6 @@
 import React from 'react'
 import './Header.css'
 import { CgProfile } from "react-icons/cg";
-import { CiSearch } from "react-icons/ci";
 
 import { Link } from 'react-router-dom';
 
@@ -18,10 +17,6 @@ function Header() {
         <div className='link_tag'>
           <Link to="/clubs">Clubs</Link>
         </div>
-        {/* <div className='search_bar_wrapper'>
-          <CiSearch size={24} color='#3A9E57'/>
-          <input placeholder='search for a videogame...' className='search_bar'/>
-        </div> */}
       </div>
       <div className='right'>
         <div className='btn'>

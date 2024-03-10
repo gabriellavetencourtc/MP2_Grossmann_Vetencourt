@@ -1,11 +1,12 @@
 import React from 'react'
-import UserProvider from './provider/UserProvider'
+import { Route, Routes } from 'react-router-dom'
+
 import Header from './components/Header/Header'
 import SignIn from './pages/SignIn/SignIn'
 import Login from './pages/LogIn/LogIn'
 import Home from './pages/Home/Home'
-import { Route, Routes } from 'react-router-dom'
 import CompleteSignIn from './pages/CompleteSignIn/CompleteSignIn'
+import Videogames from './pages/Videogames/Videogames'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/login"  element={<Login />}/>
             <Route path="/signin"  element={<SignIn/>}/>
             <Route path="/complete-signin"  element={<CompleteSignIn/>}/>
+            <Route path="/videogames"  element={<Videogames/>}/>
         </Routes>
     </>
   )

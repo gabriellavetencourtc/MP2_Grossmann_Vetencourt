@@ -1,0 +1,122 @@
+{ 
+    "1": { 
+    "Id": "1", 
+    "titulo": "The Witcher 3: Wild Hunt", 
+    "genero": "RPG", 
+    "descripcion": "Un épico juego de rol de mundo abierto con una trama envolvente y gráficos impresionantes." 
+    }, 
+    "2":{ 
+    "Id": "2", 
+    "titulo": "Red Dead Redemption 2", 
+    "genero": "Acción/Aventura", 
+    "descripcion": "Un juego de vaqueros ambientado en el Salvaje Oeste con una narrativa profunda y un vasto mundo abierto." 
+    }, 
+    "3":{ 
+    "Id": "3", 
+    "titulo": "The Legend of Zelda: Breath of the Wild", 
+    "genero": "Aventura", 
+    "descripcion": "Una aventura épica con un vasto mundo, rompecabezas desafiantes y una historia cautivadora." 
+    }, 
+    "4":{ 
+    "Id": "4", 
+    "titulo": "Dark Souls III", 
+    "genero": "Acción/RPG", 
+    "descripcion": "Un juego desafiante con combates intensos y un mundo oscuro y misterioso." 
+    }, 
+    "5":{ 
+    "Id": "5", 
+    "titulo": "Super Mario Odyssey", 
+    "genero": "Plataformas", 
+    "descripcion": "Una colorIda aventura de plataformas con un fontanero saltarín y mundos imaginativos."
+    }, 
+    "6":{ 
+    "Id": "6", 
+    "titulo": "Overwatch", 
+    "genero": "FPS", 
+    "descripcion": "Un juego de disparos en equipo con héroes únicos y emocionantes partIdas." 
+    }, 
+    "7":{ 
+    "Id": "7", 
+    "titulo": "Minecraft", 
+    "genero": "Sandbox", 
+    "descripcion": "Un mundo abierto de construcción y exploración donde puedes crear tus propias aventuras." 
+    }, 
+    "8":{ 
+    "Id": "8", 
+    "titulo": "Fortnite", 
+    "genero": "Battle Royale", 
+    "descripcion": "Un juego de supervivencia en línea con construcción y combates intensos." 
+    }, 
+    "9":{ 
+    "Id": "9", 
+    "titulo": "FIFA 22", 
+    "genero": "Deportes", 
+    "descripcion": "El simulador de fútbol más popular con equipos reales y modos de juego variados." 
+    }, 
+    "10":{ 
+    "Id": "10", 
+    "titulo": "Call of Duty: Warzone", 
+    "genero": "Battle Royale", 
+    "descripcion": "Un juego de disparos en línea con acción frenética y mapas enormes." 
+    }, 
+    "11":{ 
+    "Id": "11", 
+    "titulo": "Assassin's Creed Valhalla", 
+    "genero": "Acción/Aventura", 
+    "descripcion": "Una aventura vikinga con combates, exploración y una historia intrigante."
+    }, 
+    "12":{ 
+    "Id": "12", 
+    "titulo": "Cyberpunk 2077", 
+    "genero": "RPG", 
+    "descripcion": "Un futuro distópico lleno de tecnología, crimen y decisiones morales." 
+    }, 
+    "13":{ 
+    "Id": "13", 
+    "titulo": "Among Us", 
+    "genero": "Multijugador", 
+    "descripcion": "Un juego de engaño y deducción en el espacio con amigos o desconocIdos." 
+    }, 
+    "14":{ 
+    "Id": "14", 
+    "titulo": "Animal Crossing: New Horizons", 
+    "genero": "Simulación", 
+    "descripcion": "Una vIda tranquila en una isla paradisíaca con activIdades relajantes." 
+    }, 
+    "15":{ 
+    "Id": "15", 
+    "titulo": "League of Legends", 
+    "genero": "MOBA", 
+    "descripcion": "Batallas estratégicas en línea con campeones y habilIdades únicas." 
+    }, 
+    "16":{ 
+    "Id": "16", 
+    "titulo": "Genshin Impact", 
+    "genero": "Acción/RPG", 
+    "descripcion": "Un mundo de fantasía con personajes elementales y una jugabilIdad cautivadora." 
+    }, 
+    "17":{ 
+    "Id": "17", 
+    "titulo": "Apex Legends", 
+    "genero": "Battle Royale", 
+    "descripcion": "Combates en equipo en un mundo futurista con héroes y habilIdades únicas."
+    }, 
+    "18":{ 
+    "Id": "18", 
+    "titulo": "World of Warcraft", 
+    "genero": "MMORPG", 
+    "descripcion": "Un vasto mundo de fantasía con razas, clases y misiones épicas." 
+    }, 
+    "19":{ 
+    "Id": "19", 
+    "titulo": "Control", 
+    "genero": "Acción/Aventura", 
+    "descripcion": "Explora una agencia secreta y descubre poderes sobrenaturales en este juego intrigante." 
+    }, 
+    "20":{ 
+    "Id": "20", 
+    "titulo": "Hades", 
+    "genero": "Roguelike", 
+    "descripcion": "Embárcate en un viaje al inframundo y desafía a los dioses en este juego de acción y mitología." 
+    } 
+}

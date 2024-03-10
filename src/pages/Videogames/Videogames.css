@@ -1,0 +1,47 @@
+.videogames__container{
+    background-color: var(--green);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    flex: 1;
+}
+
+.videogames__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 40px;
+    padding-top: 100px;
+}
+
+.videogames__header p{
+    color: #FFF;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 1.5px;
+}
+.search_bar_wrapper{
+    display: flex;
+    flex: 1;
+    max-width: 400px;
+    background-color: #FFF;
+    border-radius: 20px;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.search_bar{
+    border: none;
+    outline: none;
+}
+
+.videogames__list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+    width: 100%;
+}

@@ -1,0 +1,39 @@
+.card__wrapper{
+    display: flex;
+    max-width: 300px;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 20px; 
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.8px);
+    -webkit-backdrop-filter: blur(6.8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all ease .3s;
+    gap: 5px;
+    min-height: 120px;
+}
+
+.card__wrapper:hover{
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15.2px);
+    -webkit-backdrop-filter: blur(15.2px);
+}
+
+.game__title{
+    font-weight: 700;
+    font-size: 20px !important;
+    color: #F9f9f9;
+}
+.game__genre{
+    font-size: 14px !important;
+    color: var(--light-green);
+    font-weight: 500;
+}
+
+.game__description{
+    font-size: 16px !important;
+    font-weight: 400;
+    color: #F9f9f9;
+}
