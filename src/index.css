@@ -62,3 +62,9 @@ p{
 .pb-10{
   padding-bottom: 10px;
 }
+
+.no-result{
+  color: var(--light-green);
+  font-size: 14px;
+  font-style: italic;
+}

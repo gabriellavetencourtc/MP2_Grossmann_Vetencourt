@@ -17,18 +17,23 @@ export default function UserProvider({children}) {
                   setUser({
                       ...fullUser,
                       email: user.email,
-                      uid: user.uid
+                      uid: user?.uid
                   });
               } else {
                   setUser(user);
               }
+              console.log(user)
               
               // Subscribe to changes in the user document
-              onSnapshot(doc(db, "users", user.uid), (doc) => {
+            onSnapshot(doc(db, "users", user.uid), (doc) => {
                 setUser(prevUser => ({
                   ...prevUser,
-                  ...doc.data()
+                  ...doc.data(),
+                  email: user.email,
+                  uid: user?.uid
               }));
+              console.log(user)
+            
             });
           } else {
               setUser(null);

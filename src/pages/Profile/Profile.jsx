@@ -105,23 +105,23 @@ function Profile() {
         <div className='profile__card'>
             <div className='profile__info'>
                 <div className='field__wrapper'>
-                    <p className='label'>Email</p>
+                    <p className='profile__label'>Email</p>
                     <input placeholder='example@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)} disabled={true}/>
                 </div>
                 <div className='field__wrapper'>
-                    <p className='label'>Name</p>
+                    <p className='profile__label'>Name</p>
                     <input placeholder='Jane' value={name} onChange={(e) => setName(e.target.value)} disabled={enableEdit}/>
                 </div>
                 <div className='field__wrapper'>
-                    <p className='label'>Last Name</p>
+                    <p className='profile__label'>Last Name</p>
                     <input placeholder='Doe' value={lastName} onChange={(e) => setLastName(e.target.value)} disabled={enableEdit}/>
                 </div>
                 <div className='field__wrapper'>
-                    <p className='label'>Username</p>
+                    <p className='profile__label'>Username</p>
                     <input placeholder='janedoe123' value={username} onChange={(e) => setUserName(e.target.value)} disabled={enableEdit}/>
                 </div>
                 <div className='field__wrapper'>
-                    <p className='label'>Favorite Video Game</p>
+                    <p className='profile__label'>Favorite Video Game</p>
                     <input placeholder='Call of Duty' value={favVideoGame} onChange={(e) => setFavVideoGame(e.target.value)} disabled={enableEdit}/>
                 </div>
                 <div className='field__wrapper'>
@@ -137,6 +137,10 @@ function Profile() {
                                 )}
                             </div>
                         ))}
+
+                        {user.membresias.length === 0 && (
+                            <p className='no-result'>No memberships</p>
+                        )}
                     </div>
                 </div>
             </div>

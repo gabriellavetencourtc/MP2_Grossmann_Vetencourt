@@ -15,6 +15,7 @@ function CompleteSignIn() {
 
   const navigate = useNavigate();
   const { user, setUser } = useUser();
+  
 
   const handleCompleteSignIn = async() => {
     await completeUserInfo(user, name, lastName, favVideoGame, username)
