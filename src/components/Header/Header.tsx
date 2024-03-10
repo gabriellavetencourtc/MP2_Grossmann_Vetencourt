@@ -81,7 +81,7 @@ function Header() {
               </div>
             )}
 
-            {(showProfileModal || width <= 620) && (
+            {((showProfileModal || width <= 620) && user) &&(
               <div className="profileModal">
                 <button className='profileModal__btn border-top' onClick={handleNavigateToProfile}>Profile</button>
                 <button className='profileModal__btn border-bottom' onClick={handleSignOut}>Sign out</button>
