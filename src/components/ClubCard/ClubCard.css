@@ -1,24 +1,42 @@
-.card__wrapper{
+.clubcard__wrapper{
     display: flex;
     max-width: 300px;
     flex-direction: column;
     border-radius: 20px;
-    padding: 20px; 
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(6.8px);
     -webkit-backdrop-filter: blur(6.8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: none;
     cursor: pointer;
     transition: all ease .3s;
     gap: 5px;
-    min-height: 120px;
+    min-height: 280px;
+    padding: 0;
 }
 
-.card__wrapper:hover{
+.clubcard__banner{
+    background:  rgba(0, 0, 0, 0.7);
+    padding: 30px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.clubcard__info{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 20px 15px 20px;
+}
+
+.clubcard__wrapper:hover{
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(15.2px);
     -webkit-backdrop-filter: blur(15.2px);
+    transform: scale(1.05);
 }
 
 .game__title{

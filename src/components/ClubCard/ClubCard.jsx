@@ -1,12 +1,24 @@
 import React from 'react'
 import './ClubCard.css'
-function ClubCard({club}) {
+import { GiGriffinShield } from "react-icons/gi";
+function ClubCard({club, setShowModal, setSelectedClub}) {
+
+  const handleClick = () => {
+    setSelectedClub(club)
+    setShowModal(true)
+  }
+
   return (
-    <div className='card__wrapper'>
-        <p className='game__title'>
-            {club?.nombre}
-        </p>
-        <p className='game__description'>{club?.descripcion}</p>
+    <div className='clubcard__wrapper' onClick={() => handleClick()}>
+        <div className='clubcard__banner'>
+            <GiGriffinShield size={60} color='#3A9E57'/>
+        </div>
+        <div className='clubcard__info'>
+            <p className='game__title'>
+                {club?.nombre}
+            </p>
+            <p className='game__description'>{club?.descripcion}</p>
+        </div>
     </div>
   )
 }

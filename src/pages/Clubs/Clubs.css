@@ -1,0 +1,121 @@
+.clubs__container{
+    background-color: var(--green);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    flex: 1;
+    position: relative;
+}
+
+.clubs__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 40px;
+    padding-top: 100px;
+}
+
+.clubs__header p{
+    color: #FFF;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 1.5px;
+}
+.search_bar_wrapper{
+    display: flex;
+    flex: 1;
+    max-width: 400px;
+    background-color: #FFF;
+    border-radius: 20px;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.search_bar{
+    border: none;
+    outline: none;
+}
+
+.clubs__list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+    width: 100%;
+}
+
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 35vh;
+    border-radius: 20px;
+    background: #F9F9F9;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.modal__wrapper svg{
+    cursor: pointer;
+}
+.modal__content{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__clubcard__banner{
+    background:  rgba(0, 0, 0, 0.8);
+    padding: 30px 40px 40px 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none !important;
+}
+
+.modal__header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background:  rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border: none !important;
+}
+
+.modal__clubcard__info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 20px;
+}
+
+.flex-space-between{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal__game__title{
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.pb-10{
+    padding-bottom: 10px;
+}
+
+.modal__subscribe{
+    border: none;
+    outline: none;
+    background-color: var(--dark-green);
+    padding: 10px 20px;
+    color: #FFF;
+    font-weight: 500;
+    border-radius: 20px;
+    cursor: pointer;
+}
