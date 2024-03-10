@@ -5,7 +5,7 @@ import {
   signOut,
 } from 'firebase/auth';
 import { auth, db, googleProvider } from '../config/firebase';
-import { collection, doc, setDoc } from 'firebase/firestore';
+import { collection, doc, getDoc, setDoc } from 'firebase/firestore';
 
 export const signInWithCredentials = async (
   email,
@@ -22,46 +22,70 @@ export const signInWithCredentials = async (
       password
     );
     const user = userCredential.user;
-    const usersCollection = collection(db, 'users');
-    const documentData = {
-      nombre: name,
-      apellido: lastName,
-      videojuego_preferido: favVideoGame,
-      username: username,
-      membresias: [],
-    };
-    const userDocRef = doc(usersCollection, user.uid);
-    await setDoc(userDocRef, documentData);
+    const updatedUser = completeUserInfo(
+      user,
+      name,
+      lastName,
+      favVideoGame,
+      username
+    );
+    return updatedUser;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const signInWithGoogleProvider = async () => {
+  //TODO: add logic to handle sign in with google to complete user info
+  try {
+    const userCredential = await signInWithPopup(auth, googleProvider);
+    const user = userCredential.user;
     return user;
   } catch (error) {
     console.log(error);
   }
 };
-export const signInWithGoogleProvider = async (
+
+export const completeUserInfo = async (
+  user,
   name,
   lastName,
   favVideoGame,
   username
 ) => {
-  //TODO: add logic to handle sign in with google to complete user info
+  const usersCollection = collection(db, 'users');
+  const documentData = {
+    nombre: name,
+    apellido: lastName,
+    videojuego_preferido: favVideoGame,
+    username: username,
+    membresias: [],
+  };
+  const userDocRef = doc(usersCollection, user.uid);
+  await setDoc(userDocRef, documentData);
+};
+
+export const getUserById = async (userId) => {
   try {
-    const userCredential = await signInWithPopup(auth, googleProvider);
-    const user = userCredential.user;
+    if (!userId) {
+      console.error('userId is empty');
+      return null;
+    }
     const usersCollection = collection(db, 'users');
-    const documentData = {
-      nombre: name,
-      apellido: lastName,
-      videojuego_preferido: favVideoGame,
-      username: username,
-      membresias: [],
-    };
-    const userDocRef = doc(usersCollection, user.uid);
-    await setDoc(userDocRef, documentData);
+    const userDocRef = doc(usersCollection, userId);
+    const docSnap = await getDoc(userDocRef);
+    if (docSnap.exists()) {
+      return docSnap.data();
+    } else {
+      console.log('No such document!');
+      return null;
+    }
   } catch (error) {
     console.log(error);
+    4;
   }
 };
-export const logout = async () => {
+
+export const logOutUser = async () => {
   try {
     await signOut(auth);
   } catch (error) {
@@ -71,7 +95,7 @@ export const logout = async () => {
 export const logInWithCredentials = async (email, password) => {
   try {
     const user = await signInWithEmailAndPassword(auth, email, password);
-    return user;
+    return user.user;
   } catch (error) {
     console.log(error);
   }

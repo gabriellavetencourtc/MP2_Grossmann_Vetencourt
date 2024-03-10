@@ -5,7 +5,6 @@
     flex: 1;
     background-color: #4CC870;
     min-height: 100vh;
-
 }
 .signIn__wrapper {
     display: flex;
@@ -15,7 +14,6 @@
     border-radius: 20px;
     min-width: 20%;
     gap: 20px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .title {
     text-align: center;

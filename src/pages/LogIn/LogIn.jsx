@@ -1,6 +1,6 @@
 import './LogIn.css'
 import React, { useEffect, useState } from 'react'
-import { logInWithCredentials, logInWithGoogleProvider, logout } from '../../controllers/auth'
+import { logInWithCredentials, logOutUser, signInWithGoogleProvider } from '../../controllers/auth'
 import {useUser} from '../../context/user'
 import { useNavigate } from "react-router-dom";
 
@@ -8,36 +8,32 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
 
-  const user = useUser();
+  const {user, setUser} = useUser();
 
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  useEffect(() => {
-    if(user){
-      console.log('LOGIN HAS USER INFO')
-    }else{
-      console.log('LOGIN DOESNT HAVE USER INFO')
-    }
-  }, [user])
-  
-
   const handleLogIn = async() => {
-    const user = await logInWithCredentials(email, password)
-    if(user){
+    const loggedUser = await logInWithCredentials(email, password)
+    if(loggedUser){
       navigate('/')
     }else{
-      alert('login failed')
+      console.log('login failed')
     }
   }
   const signInWithGoogle = async() => {
-    await logInWithGoogleProvider();
+    const user = await signInWithGoogleProvider();
+    if(user){
+      navigate('/complete-signin')
+    }else{
+      console.log('error loging in with google')
+    }
   }
 
   const handleLogOut = async () => {
-    await logout()
+    await logOutUser()
   }
   return (
     <div className='signIn__container'>

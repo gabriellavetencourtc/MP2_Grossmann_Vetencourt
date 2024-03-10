@@ -1,9 +1,7 @@
 import './SignIn.css'
 import React, { useState } from 'react'
-import { auth, db, googleProvider } from '../../config/firebase'
-import { createUserWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
-import { collection, doc, setDoc } from "firebase/firestore"; 
-import { logout, signInWithCredentials, signInWithGoogleProvider } from '../../controllers/auth';
+import { auth } from '../../config/firebase'
+import { logOutUser, signInWithCredentials, signInWithGoogleProvider } from '../../controllers/auth';
 import { useNavigate } from 'react-router-dom';
 
 function SignIn() {
@@ -26,10 +24,15 @@ function SignIn() {
     }
   }
   const signInWithGoogle = async() => {
-    await signInWithGoogleProvider();
+    const user = await signInWithGoogleProvider();
+    if(user){
+      navigate('/complete-signin')
+    }else{
+      console.log('error loging in with google')
+    }
   }
-  const logOut = async () => {
-    await logout();
+  const handleLogOut = async () => {
+    await logOutUser();
   }
 
   return (
@@ -64,7 +67,7 @@ function SignIn() {
         <button onClick={() => signInWithGoogle()} className='signIn__btn__border'>Sign In with Google</button>
         {
           auth?.currentUser?.email && (
-            <button onClick={() => logOut()} className='signIn__btn__border'>Logout</button>
+            <button onClick={() => handleLogOut()} className='signIn__btn__border'>Logout</button>
           )
         }
         

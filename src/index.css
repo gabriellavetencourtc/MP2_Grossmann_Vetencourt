@@ -1,5 +1,9 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --lightest-green: #F3FEF6;
+  --light-green: #C0EFCC;
+  --green: #4CC870;
+  --dark-green: #3A9E57;
 }
 
 body {
