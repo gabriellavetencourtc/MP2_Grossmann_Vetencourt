@@ -3,14 +3,23 @@ import './Videogames.css'
 import { CiSearch } from "react-icons/ci";
 import { getAllVideogames } from '../../controllers/videogames';
 import VideogameCard from '../../components/VideogameCard/VideogameCard';
+import { useUser } from '../../context/user';
+import { useNavigate } from 'react-router-dom';
 
 function Videogames() {
 
     const [videogamesList, setVideoGamesList] = useState([])
     const [filterVideogamesList, setFilterVideogamesList] = useState([])
 
+    const { user } = useUser();
+
+    const navigate = useNavigate();
+
     useEffect(() => {
         const handleGetVideogames = async () => {
+            if(!user){
+                navigate('/')
+            }
             const videogames = await getAllVideogames();
     
             if (videogames.length > 0) {

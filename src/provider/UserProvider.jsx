@@ -1,33 +1,41 @@
 import { onAuthStateChanged } from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
 import { UserContext } from '../context/user'
-import { auth } from '../config/firebase'
+import { auth, db } from '../config/firebase'
 import { getUserById } from '../controllers/auth'
 import { useNavigate } from 'react-router-dom'
+import { doc, onSnapshot } from 'firebase/firestore'
 
 export default function UserProvider({children}) {
     const [user, setUser] = useState(null)
 
     useEffect(() => {
-      onAuthStateChanged(auth, async (user) => {
-        // TODO: traer el resto de la data de firestore
-        if(user){
-          const fullUser = await getUserById(user.uid);
-          if(fullUser){
-            setUser({
-              ...fullUser,
-              email: user.email,
-            })
-            console.log({
-              ...fullUser,
-              email: user.email,
-            })
-          }else{
-            setUser(user)
+      const unsubscribe = onAuthStateChanged(auth, async (user) => {
+          if (user) {
+              const fullUser = await getUserById(user.uid);
+              if (fullUser) {
+                  setUser({
+                      ...fullUser,
+                      email: user.email,
+                      uid: user.uid
+                  });
+              } else {
+                  setUser(user);
+              }
+              
+              // Subscribe to changes in the user document
+              onSnapshot(doc(db, "users", user.uid), (doc) => {
+                setUser(prevUser => ({
+                  ...prevUser,
+                  ...doc.data()
+              }));
+            });
+          } else {
+              setUser(null);
           }
-        }
-      })
-    }, [])
+      });
+      return () => unsubscribe();
+    }, []);
     
     return (<UserContext.Provider value={{ user, setUser }}>
         {children}

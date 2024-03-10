@@ -12,7 +12,7 @@
     padding: 30px;
     background-color: #FFF;
     border-radius: 20px;
-    min-width: 30%;
+    min-width: 30% !important;
     gap: 20px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }

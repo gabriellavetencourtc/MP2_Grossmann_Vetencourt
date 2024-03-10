@@ -44,7 +44,6 @@
     gap: 20px;
     flex-wrap: wrap;
     padding: 20px;
-    width: 100%;
 }
 
 .modal{
@@ -53,10 +52,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 30%;
-    height: 35vh;
+    height: 40vh;
     border-radius: 20px;
     background: #F9F9F9;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .modal__wrapper svg{
@@ -115,6 +114,17 @@
     background-color: var(--dark-green);
     padding: 10px 20px;
     color: #FFF;
+    font-weight: 500;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.modal__unsubscribe{
+    border: none;
+    outline: none;
+    border: 1px solid var(--dark-green);
+    background-color: #FFF;
+    padding: 10px 20px;
+    color: #000;
     font-weight: 500;
     border-radius: 20px;
     cursor: pointer;

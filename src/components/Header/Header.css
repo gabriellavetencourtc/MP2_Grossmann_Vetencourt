@@ -60,6 +60,7 @@
     justify-content: flex-end;
     gap: 10px;
     align-items: center;
+    padding-right: 30px;
 }
 
 .btn{
@@ -77,4 +78,41 @@
 }
 .right svg{
     cursor: pointer;
+}
+
+.profileModal{
+    position: absolute;
+    right: 40px;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF;
+    border-radius: 10px;
+    min-width: 150px;
+    z-index: 10;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.profileModal__btn{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--light-green);
+    padding: 20px 20px;
+    font-weight: 600;
+    transition: all ease .3s;
+    background-color: #FFF;
+}
+
+.profileModal__btn:hover {
+    background-color: var(--light-green);
+    cursor: pointer;
+}
+
+.border-top{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.border-bottom{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }

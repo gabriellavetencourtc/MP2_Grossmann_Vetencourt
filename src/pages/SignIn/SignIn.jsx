@@ -18,7 +18,7 @@ function SignIn() {
   const signIn = async() => {
     const user = await signInWithCredentials(email, password, name, lastName, favVideoGame, username)
     if(user){
-      navigate('/')
+      navigate('/videogames')
     }else{
       alert('Sign in couldnt be completed')
     }

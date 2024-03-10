@@ -5,6 +5,9 @@ import ClubCard from '../../components/ClubCard/ClubCard';
 import { CiSearch } from 'react-icons/ci';
 import { IoMdClose } from "react-icons/io";
 import { GiGriffinShield } from 'react-icons/gi';
+import { useUser } from '../../context/user';
+import { useNavigate } from 'react-router-dom';
+import { addNewMembership, removeMembership } from '../../controllers/auth';
 
 
 function Clubs() {
@@ -14,15 +17,18 @@ function Clubs() {
     const [showModal, setShowModal] = useState(false);
     const [selectedClub, setSelectedClub] = useState(null);
 
-    const openModal = () => {
-        setShowModal(true);
-    };
+    const { user } = useUser();
+
+    const navigate = useNavigate();
 
     const closeModal = () => {
         setShowModal(false);
     };
 
     useEffect(() => {
+        if(!user){
+            navigate('/')
+        }
         const handleGetClubs = async () => {
             const clubs = await getAllClubs();
     
@@ -43,6 +49,39 @@ function Clubs() {
 
     setFilterClubsList(filteredClubs)
    } 
+
+   const handleSubscribeToClub = async (clubId) => {
+    if(user){
+        const result = await addNewMembership(user.uid, clubId)
+        if(result){
+            alert('Successfully subscribed!!')
+        }else{
+            console.log('Error in subscription')
+        }
+    }
+   }
+   const handleUnsubscribeToClub = async (clubId) => {
+    if(user){
+        const result = await removeMembership(user.uid, clubId)
+        if(result){
+            console.log('Unsubscribed')
+        }else{
+            console.log('Error in subscription')
+        }
+    }
+   }
+
+   const findSubscription = (clubId) => {
+    if(user){
+        const found = user.membresias.find((membresia) => membresia == clubId);
+
+        if(found){
+            return true
+        }else{
+            return false
+        }
+    }
+   }
 
   return (
     <div className='clubs__container'>
@@ -76,7 +115,11 @@ function Clubs() {
                                 <p className='modal__game__title'>
                                     {selectedClub?.nombre}
                                 </p>
-                                <button className='modal__subscribe'>Subscribe</button>
+                                {findSubscription(selectedClub.Id) ? (
+                                    <button className='modal__unsubscribe' onClick={() => handleUnsubscribeToClub(selectedClub.Id)}>Unsubscribe</button>
+                                ): (
+                                    <button className='modal__subscribe' onClick={() => handleSubscribeToClub(selectedClub.Id)}>Subscribe</button>
+                                )}
                             </div>
                             <p className='modal__game__description'>{selectedClub?.descripcion}</p>
                         </div>

@@ -5,7 +5,15 @@ import {
   signOut,
 } from 'firebase/auth';
 import { auth, db, googleProvider } from '../config/firebase';
-import { collection, doc, getDoc, setDoc } from 'firebase/firestore';
+import {
+  arrayRemove,
+  arrayUnion,
+  collection,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+} from 'firebase/firestore';
 
 export const signInWithCredentials = async (
   email,
@@ -81,7 +89,6 @@ export const getUserById = async (userId) => {
     }
   } catch (error) {
     console.log(error);
-    4;
   }
 };
 
@@ -106,5 +113,32 @@ export const logInWithGoogleProvider = async () => {
     return user;
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const addNewMembership = async (userId, clubId) => {
+  try {
+    const userRef = doc(db, 'users', userId);
+    // Set the "capital" field of the city 'DC'
+    await updateDoc(userRef, {
+      membresias: arrayUnion(clubId),
+    });
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
+export const removeMembership = async (userId, clubId) => {
+  try {
+    const userRef = doc(db, 'users', userId);
+    // Set the "capital" field of the city 'DC'
+    await updateDoc(userRef, {
+      membresias: arrayRemove(clubId),
+    });
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
   }
 };

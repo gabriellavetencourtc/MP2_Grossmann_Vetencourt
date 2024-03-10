@@ -18,7 +18,7 @@ function Login() {
   const handleLogIn = async() => {
     const loggedUser = await logInWithCredentials(email, password)
     if(loggedUser){
-      navigate('/')
+      navigate('/videogames')
     }else{
       console.log('login failed')
     }
