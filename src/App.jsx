@@ -17,7 +17,7 @@ function App() {
         {/* Header */}
         <Header/>
         <Routes>       
-            <Route path="/" element={<Navigate to="/clubs" />} /> 
+            <Route path="/MP2_Grossmann_Vetencourt/" element={<Navigate to="/clubs" />} />
             <Route  path="/clubs"  element={<Clubs/>} index={true}/>
             <Route path="/login"  element={<Login />}/>
             <Route path="/signin"  element={<SignIn/>}/>
